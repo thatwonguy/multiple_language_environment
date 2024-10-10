@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# Java
+target/
+*.class
+
+# C#
+bin/
+obj/
+*.dll
+*.exe
