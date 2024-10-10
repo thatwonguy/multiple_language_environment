@@ -5,7 +5,7 @@
 
 package com.example;
 
-public class JavaProgram {
+public class App {
     // The entry point of the Java program
     public static void main(String[] args) {
         // Check if there is at least one argument passed (from Python or terminal).

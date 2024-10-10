@@ -12,7 +12,9 @@ app = FastAPI()
 # CORS configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    # allow_origins=["http://localhost:3000"], #if using react js location directly
+    allow_origins=["http://localhost"], # should match nginx.conf routing set up
+    # allow_origins=["*"], # allow all origins for testing purposes
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -32,14 +34,14 @@ def call_java(input_value):
     try:
         # Update the classpath to match the actual location of the JavaProgram.class
         result = subprocess.run(
-            ['java', '-cp', '../JavaProgram/target/classes', 'com.example.JavaProgram', input_value],
+            ['java', '-cp', '../JavaProgram/target/classes', 'com.example.App', input_value],
             capture_output=True, text=True
         )
         return result.stdout.strip()
     except Exception as e:
         return f"Error in Java: {str(e)}"
 
-@app.post("/")
+@app.post("/api/")
 async def communicate(request: Request):
     data = await request.json()
     print("Received data:", data)  # Log the incoming data

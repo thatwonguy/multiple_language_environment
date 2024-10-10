@@ -7,7 +7,8 @@ function App() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const res = await fetch('http://localhost:8000/', {  // URL should match the FastAPI endpoint
+    // const res = await fetch('http://localhost:8000/api/', {  // URL should match the FastAPI endpoint
+    const res = await fetch('/api/', {  // Use relative path for the Nginx setup  
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
