@@ -197,6 +197,15 @@ As a result we also have to implement CORS in our python API.
 - Nginx serves as a reverse proxy, routing requests from the React frontend to the FastAPI backend.
 It handles serving the React app and forwards API requests to the correct backend endpoint and provides more privacy for the backend.
 
+- to start your nginx, navigate to the directory in bash terminal and type:
+    ```bash
+    start ./nginx.exe
+    ```
+    - to STOP your nginx:
+    ```bash
+    ./nginx.exe -s stop
+    ```
+
 ### Final Response:
 
 - The backend `Python` FastAPI application constructs a final response, incorporating the messages from `C#` and `Java`, as well as its own message: "Python handled all the communication between the different languages and also says hello!" and shares the results to the `JavaScript` and `React` front-end UI for the user to see and this routing and communcation is additional done using `Nginx` as a reverse proxy.

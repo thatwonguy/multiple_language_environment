@@ -12,9 +12,11 @@ app = FastAPI()
 # CORS configuration
 app.add_middleware(
     CORSMiddleware,
-    # allow_origins=["http://localhost:3000"], #if using react js location directly
-    allow_origins=["http://localhost"], # should match nginx.conf routing set up
-    # allow_origins=["*"], # allow all origins for testing purposes
+    allow_origins=[
+        "http://localhost", # this is currently the nginx set up
+        # "http://localhost:3000",  # if wanting to allow direct React frontend interaction
+        # "*" # allowing all origins for testing purposes
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
