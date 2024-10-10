@@ -1,70 +1,166 @@
-# Getting Started with Create React App
+# Transition from Streamlit UI to React Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+In this project, we replaced the Streamlit UI with a basic React frontend to enhance user interaction and integrate with our multi-language communication system (Python, C#, Java). Below are the instructions to set up your development environment and run the React application.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+1. **Node.js**: Ensure you have Node.js installed on your system.
+2. **Git**: Make sure Git is installed to manage version control.
 
-### `npm start`
+## Installing Node.js on Windows
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Download Node.js**:
+   - Visit the [Node.js official website](https://nodejs.org/).
+   - Download the Windows Installer (.msi) for the latest LTS (Long Term Support) version.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. **Install Node.js**:
+   - Run the downloaded installer.
+   - Follow the setup wizard, ensuring you check the option to install the necessary tools for Native Modules.
 
-### `npm test`
+3. **Set Environment Variables**:
+   - Node.js should automatically set the environment variables during installation.
+   - To verify, open Command Prompt and type:
+     ```bash
+     node -v
+     npm -v
+     ```
+   - If both commands return version numbers, Node.js and npm are installed correctly.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setting Up Bash Environment
 
-### `npm run build`
+1. **Using Git Bash**:
+   - If you have Git installed, you should have Git Bash available. You can use this to run commands in a Unix-like shell.
+   - Open Git Bash from your Start menu or by right-clicking in a folder.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Creating a React Project
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Create a New React App**:
+   - Open Git Bash and navigate to your desired directory:
+     ```bash
+     cd /path/to/your/directory
+     ```
+   - Create a new React application using Create React App:
+     ```bash
+     npx create-react-app my-app
+     ```
+   - Replace `my-app` with your desired project name.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Navigate to Your Project Directory**:
+   ```bash
+   cd my-app
+   ```
 
-### `npm run eject`
+## Modifying the React Application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Update the `src/App.js` File**:
+   Replace the content of `src/App.js` with the following code:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```javascript
+   import React, { useState } from 'react';
+   import './App.css';
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   function App() {
+     const [input, setInput] = useState('');
+     const [response, setResponse] = useState('');
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+     const handleSubmit = async (event) => {
+       event.preventDefault();
+       const res = await fetch("http://localhost:8000/", { // point to the correct endpoint
+         method: 'POST',
+         headers: {
+           'Content-Type': 'application/json',
+         },
+         body: JSON.stringify({ input }), // Send input value
+       });
 
-## Learn More
+       if (!res.ok) {
+         const errorMessage = await res.text();
+         console.error("Error response:", errorMessage);
+         return;
+       }
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+       const data = await res.json();
+       setResponse(data);
+     };
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+     return (
+       <div className="App">
+         <h1>Multi-Language Communication</h1>
+         <form onSubmit={handleSubmit}>
+           <input
+             type="text"
+             value={input}
+             onChange={(e) => setInput(e.target.value)}
+             placeholder="Enter message"
+           />
+           <button type="submit">Send</button>
+         </form>
+         <h2>Response:</h2>
+         <p>{response["C# Output"]}</p>
+         <p>{response["Java Output"]}</p>
+         <p>{response["Python Output"]}</p>
+       </div>
+     );
+   }
 
-### Code Splitting
+   export default App;
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Running the React Application
 
-### Analyzing the Bundle Size
+1. **Install Dependencies**:
+   - Run the following command to install project dependencies:
+     ```bash
+     npm install
+     ```
+   - **Check for Updates**
+   
+     To check for outdated packages in your project, run the following command in your project's root directory:
+     ```bash
+     npm outdated
+     ```
+     - This command will display a list of packages that are outdated along with their current, wanted, and latest versions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    - **Install Latest Major Version**
+    If you want to update all packages to their latest major versions (which might include breaking changes), you can use the npm-check-updates package:
+        ```bash
+        npm install -g npm-check-updates
+        ```
+        - and then type the following to check dependencies and continue to get rid of errors before compiling:
+        ```bash
+        ncu
+        ```
+        - if needed run the following to update your `package.json`:
+        ```bash
+        ncu -u
+        ```
+        - now install all the updated packages again if needed:
+        ```bash
+        npm install
+        ```
 
-### Making a Progressive Web App
+2. **Run the Development Server**:
+   - Start the React application:
+     ```bash
+     npm start
+     ```
+   - This will open your default web browser at `http://localhost:3000`, where you can interact with your new React UI.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Building the React Application for Production
 
-### Advanced Configuration
+1. **Build the Application**:
+   - To create a production build of your app, run:
+     ```bash
+     npm run build
+     ```
+   - This will generate static files in the `build` directory.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Conclusion
 
-### Deployment
+You have successfully transitioned from a Streamlit UI to a React frontend. You can now integrate it with your existing multi-language backend (Python, C#, Java) and run your application.
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Notes
+- Ensure that your backend FastAPI service is running on the specified port (`8000` in this case) while testing the React application.
+- Adjust paths and variable names in the instructions as needed to fit your project's structure.
