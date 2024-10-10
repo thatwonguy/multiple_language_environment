@@ -1,13 +1,17 @@
 [tool.poetry]
 name = "multi-code-environment"
 version = "0.1.0"
-description = "C#, Java, and Python being used together to get results. Multi-language collab."
+description = "C#, Java, and Python, React Front-End being used together to get results. Multi-language collab."
 authors = ["thatwonguy"]
 readme = "README.md"
+package-mode = false
+
 
 [tool.poetry.dependencies]
 python = "^3.12"
 streamlit = "^1.39.0"
+fastapi = "^0.115.0"
+uvicorn = "^0.31.1"
 
 
 [build-system]

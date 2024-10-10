@@ -3,13 +3,31 @@ __pycache__/
 *.pyc
 *.pyo
 .venv/
+*.env 
+config.ini 
 
 # Java
 target/
 *.class
+*.jar  
+*.war  
+*.properties  
 
 # C#
 bin/
 obj/
 *.dll
 *.exe
+*.pdb  
+# Node.js
+node_modules/  
+package-lock.json  
+
+# Miscellaneous
+*.log 
+.DS_Store  
+Thumbs.db  
+.idea/  
+*.sublime-project  
+*.sublime-workspace  
+*.bak  

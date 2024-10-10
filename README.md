@@ -162,3 +162,34 @@ Console.WriteLine("Hello, World!");
 System.out.println("Hello, World!");
 ```
 This setup allows you to write a multi-language project where Python interacts with both C# and Java, and you can easily push and test changes in GitHub.
+
+---
+--- 
+# Updates - 10/10/24  
+
+## Breakdown of the System
+### 1. React Frontend:
+
+>[!NOTE]
+> Now that we have a `react` front-end and `python` backend, you will need to run both separately in two terminal windows so they can both be active and communicate with each other.
+- We ended up using a basic react frontend to replace the streamlit UI initially used, just to integrate more languages into the mix (in this case javascript).
+- The user types a message (in this case, "hi") into the input field and submits it.
+- The frontend sends this message to the FastAPI backend via a POST request.
+### 2. FastAPI Backend:
+
+- The FastAPI application receives the request and extracts the input message from the JSON body.
+- It calls the C# and Java programs, passing the user's input to both.
+- The FastAPI app collects the responses from the C# and Java programs and constructs a final response, including its own message.
+### 3. C# Program:
+
+- The C# program reads the input, processes it, and returns a greeting response. For example, "C# received: hi and responds with a greeting!"
+### 4. Java Program:
+
+- Similar to the C# program, the Java program processes the input and returns its own response, such as "Java received: hi and responds with a hello!"
+### 5. Final Response:
+
+- The FastAPI application constructs a final response, incorporating the messages from C# and Java, as well as its own message: "Python handled all the communication between the different languages and also says hello!"
+
+## Summary
+
+This setup effectively demonstrates how different programming languages can communicate with each other through a centralized Python service. This type of architecture is useful for leveraging the strengths of various languages in a single application, allowing for more complex functionalities and integration with different systems.
