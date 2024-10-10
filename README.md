@@ -167,7 +167,7 @@ This setup allows you to write a multi-language project where Python interacts w
 --- 
 # Updates - 10/10/24  
 
-## Breakdown of the System
+## Breakdown of updates
 ### 1. React Frontend:
 
 >[!NOTE]
