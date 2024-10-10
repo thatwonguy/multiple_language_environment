@@ -213,3 +213,34 @@ It handles serving the React app and forwards API requests to the correct backen
 ## Summary
 
 This setup effectively demonstrates how different programming languages can communicate with each other through a centralized Python service. This type of architecture is useful for leveraging the strengths of various languages in a single application, allowing for more complex functionalities and integration with different systems.
+
+# How to RUN: Start 3 separate terminals
+### 1. Nginx:
+- first terminal for `nginx`: 
+- cd into your directory where you extracted your nginx:
+```bash
+start ./nginx.exe
+```
+```bash
+./nginx.exe -s stop
+```
+### 2. Python Backend
+- second terminal for `python` backend api: 
+- cd into your directory where your python api code is:
+
+```bash
+poetry shell
+poetry run uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+```
+```bash
+./nginx.exe -s stop
+```
+### 3. JavaScript Reaction Frontend
+- third terminal for `javascript` backend api: 
+- cd into your directory where your frontend javascript code is:
+
+```bash
+ npm run build
+```
+
+### 4. check it out at <http://localhost> !
