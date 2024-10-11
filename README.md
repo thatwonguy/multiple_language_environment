@@ -218,8 +218,8 @@ This setup effectively demonstrates how different programming languages can comm
 
 # How to RUN: Start 3 separate terminals
 ### 1. Nginx:
-- first terminal for `nginx`: 
-- cd into your directory where you extracted your nginx:
+- first terminal for `nginx`
+- cd into your directory where you extracted your nginx
 ```bash
 start ./nginx.exe
 ```
@@ -227,8 +227,8 @@ start ./nginx.exe
 ./nginx.exe -s stop
 ```
 ### 2. Python Backend
-- second terminal for `python` backend api: 
-- cd into your directory where your python api code is:
+- second terminal for `python` backend api
+- cd into your directory where your python api code is
 
 ```bash
 poetry shell
@@ -237,9 +237,9 @@ poetry run uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```bash
 ./nginx.exe -s stop
 ```
-### 3. JavaScript Reaction Frontend
-- third terminal for `javascript` backend api: 
-- cd into your directory where your frontend javascript code is:
+### 3. JavaScript React Frontend
+- third terminal for `javascript` backend api
+- cd into your directory where your frontend javascript code is
 
 ```bash
  npm run build
