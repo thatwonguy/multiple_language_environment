@@ -104,12 +104,10 @@ mvn exec:java
 3. Project Structure: Enforces a standard directory structure, making it easier to understand and maintain.
 ## Summary
 
-Using Maven simplifies the process of managing Java projects. It helps in organizing your code, managing dependencies, and packaging your applications efficiently. With this guide, you should be able to set up a Java project using Maven successfully.
-
-By following these steps, you can efficiently set up a Java project using Maven, compile your code, and execute it. This structure also allows for easier management of dependencies and project configurations...OR you can just manually figure it out and brute force it :P if you like.
+Using Maven simplifies the process of managing Java projects. It helps in organizing your code, managing dependencies, and packaging your applications efficiently. With this guide, you should be able to set up a Java project using Maven successfully...OR you can just manually figure it out and brute force it :P if you like.
 
 >[!NOTE]
-> `Maven` is just one way of setting up a `Java` coding project quickly in a standard fashion instead of doing it manually. It is the one we use here but it's not the only alternative to doing it manually. Here are a few other options:
+> `Maven` is just one way of setting up a `Java` coding project quickly in a standard fashion instead of doing it manually. We didn't have to use Maven or any of it but we simply decided to for demo purposes and to help ensure best practices were demoed for Java environments. It is the one we use here but it's not the only alternative to doing it manually. Here are a few other options:
 >
 > - `Gradle`: More concise and flexible build scripts, faster build times, and better performance.
 > - `Ant`: Focuses on flexibility and customizability, with a steeper learning curve.
