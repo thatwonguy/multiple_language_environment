@@ -210,7 +210,7 @@ It handles serving the React app and forwards API requests to the correct backen
 
 ### Final Response:
 
-- The backend `Python` FastAPI application constructs a final response, incorporating the messages from `C#` and `Java`, as well as its own message: "Python handled all the communication between the different languages and also says hello!" and shares the results to the `JavaScript` and `React` front-end UI for the user to see and this routing and communcation is additional done using `Nginx` as a reverse proxy.
+- The backend `Python` FastAPI application constructs a final response, incorporating the messages from `C#` and `Java`, as well as its own message: "Python handled all the communication between the different languages and also says hello!" and shares the results to the `JavaScript` and `React` front-end UI for the user to see. Additionally, the routing of the communcation between frontend and backend is implemented using `Nginx` as a reverse proxy and adds a layer of security and scalability.
 
 ## Summary
 
