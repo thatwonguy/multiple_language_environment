@@ -159,7 +159,6 @@ In this project, we replaced the Streamlit UI with a basic React frontend to enh
 ## Conclusion
 
 You have successfully transitioned from a Streamlit UI to a React frontend. You can now integrate it with your existing multi-language backend (Python, C#, Java) and run your application.
-```
 
 ### Notes
 - Ensure that your backend FastAPI service is running on the specified port (`8000` in this case) while testing the React application.
