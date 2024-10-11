@@ -1,10 +1,91 @@
-# Setting Up a Java Project with Maven
+# Setting Up a Java Project with Maven FROM SCRATCH
 ## Overview
-Maven is a powerful build automation tool used primarily for Java projects. It simplifies the process of managing project dependencies, building projects, and creating JAR files. This guide will walk you through the process of setting up a Java project using Maven.
+Maven is a powerful build automation tool used primarily for Java projects. It simplifies the process of managing project dependencies, building projects, and creating JAR files. This guide will walk you through the process of setting up a Java project using Maven. 
+
+Before setting up a Maven project, you need to have the Java Development Kit (JDK) installed on your system and properly configured in the environment variables. This guide will walk you through installing Java, verifying the installation, and ensuring it works in both Command Prompt (CMD) and Git Bash.
 
 ## Prerequisites
 - Java Development Kit (JDK) installed on your machine.
 - Apache Maven installed on your machine.
+- A Windows machine.
+- Administrator privileges to install software.
+
+## Setting Up Java on Windows (For CMD and Bash)
+
+## Step 1: Install the Java Development Kit (JDK)
+
+### 1.1 Download the JDK
+- Go to the [Oracle JDK download page](https://www.oracle.com/java/technologies/javase-jdk15-downloads.html).
+- Select the version you want (the latest Long-Term Support (LTS) version is recommended for stability).
+- Download the Windows `.exe` installer.
+
+### 1.2 Run the Installer
+- Run the `.exe` file you downloaded.
+- Follow the on-screen instructions to install Java on your system.
+- During the installation, note the installation path (usually something like `C:\Program Files\Java\jdk-x.x.x`).
+
+## Step 2: Set Up Environment Variables
+
+### 2.1 Configure Java Path in Environment Variables
+1. **Open Environment Variables:**
+   - Right-click **This PC** or **My Computer** and click **Properties**.
+   - On the left side, click **Advanced system settings**.
+   - In the **System Properties** window, click the **Environment Variables** button.
+
+2. **Add JAVA_HOME:**
+   - In the Environment Variables window, click **New** under **System Variables**.
+   - Set the **Variable name** to `JAVA_HOME`.
+   - Set the **Variable value** to the path of your JDK installation (e.g., `C:\Program Files\Java\jdk-15.x.x`).
+   - Click **OK** to save.
+
+3. **Update the Path variable:**
+   - Under **System Variables**, find the `Path` variable and select it.
+   - Click **Edit** and then **New**.
+   - Add `%JAVA_HOME%\bin` to the list.
+   - Click **OK** to save the changes.
+
+### 2.2 Verify Java Installation
+- Open a **new** Command Prompt or Git Bash terminal and run the following command:
+```bash
+java -version
+```
+
+- This should display the installed version of Java. If the output is something like:
+```bash
+java version "1.8.0_xxx" or java version "15.0.x"
+```
+Java has been installed correctly, and the environment variables are set.
+
+You can also check the javac (Java compiler) by running:
+
+```bash
+javac -version
+```
+### Step 3: Verify Java in Git Bash
+## 3.1 Check Git Bash Compatibility
+Open Git Bash and type the following command to verify if Git Bash can recognize the Java installation:
+
+```bash
+java -version
+```
+This should show the same version as in the Command Prompt. If Git Bash does not recognize Java, ensure that `%JAVA_HOME%\bin` is correctly set in the system's `Path` environment variable.
+
+### Step 4: Install Maven (After Java is Verified)
+Now that Java is installed and verified, you can proceed to install Maven and set up your Java project. You can follow the next guide to install Maven.
+
+## Troubleshooting Tips
+1. **'java' is not recognized as an internal or external command:**
+   - Ensure you have set the `JAVA_HOME` and `Path` variables correctly.
+   - Reopen any terminal or IDE after setting the environment variables to reflect the changes.
+2. **'javac' not found but 'java' is found:**
+   - This indicates that the JDK's `bin` folder is not properly added to the `Path`. Double-check that `%JAVA_HOME%\bin` is included in the system's `Path` variable.
+3. **Restart your computer:**
+   - Sometimes, the system needs a reboot for environment variable changes to take effect.
+
+Now that your Java environment is fully configured, you're ready to move on to Setting Up Maven.
+
+---
+---
 ### 1. Install Maven
 #### 1. Download Maven: Visit the `Maven Download Page` and download the latest version of Maven.
 
