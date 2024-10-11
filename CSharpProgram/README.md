@@ -44,6 +44,14 @@ During the installation, choose Git Bash as the default terminal emulator for Gi
 3. **Verify Bash is Working:**
 After installation, open Git Bash.
 You can run bash commands like `ls`, `cd`, and others to verify that it's working correctly.
+
+### Step 3.1: Verify install and accessibility of C# on your system:
+- Run the following command in `bash` and `cmd` to make sure its installed on your system:
+```bash
+dotnet --version
+```
+- If this shows the version, it means .NET SDK is properly installed and C# is available for development.
+
 ### Step 4: Create a Simple C# Program
 Now that the development environment is set up, you can create a C# program.
 
