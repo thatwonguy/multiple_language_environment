@@ -1,3 +1,5 @@
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 # Purpose - DEMO of multi-language coding environment
 
 To achieve a system where Python, C#, and Java files interact with each other, passing variables between them, and then displaying the results in a Streamlit web UI, here's an outline of how you can set up and write code in these languages and integrate them:
