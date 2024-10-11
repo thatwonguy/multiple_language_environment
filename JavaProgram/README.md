@@ -89,8 +89,15 @@ java -cp target/JavaProgram-1.0-SNAPSHOT.jar com.example.App "Hello from termina
 ```
 
 ## Maven Build Process Overview
-- mvn clean compile: This command removes any previously compiled artifacts and compiles the Java source files.
-- mvn exec:java: This command runs the Java application specified by the mainClass parameter, passing any additional arguments.
+```bash
+mvn clean compile
+```
+- `mvn clean`: This command removes the target directory, which contains all compiled files, artifacts, and any previously generated files. It essentially cleans the project state.  
+- `mvn compile`: This command compiles the Java source files located in the src/main/java directory. If there are any issues during compilation (like syntax errors), they will be reported in the console.
+```bash
+mvn exec:java
+```
+- `mvn exec:java`: This command runs the Java application defined in your pom.xml file, specifically the class specified by the -Dexec.mainClass parameter. It allows you to pass additional arguments using -Dexec.args="your arguments", which will be passed to the main method of the specified class.
 ## Why Use Maven?
 1. Dependency Management: Maven automatically downloads and manages libraries required for your project.
 2. Build Automation: Simplifies the build process through a standard lifecycle that includes compiling, testing, and packaging.
