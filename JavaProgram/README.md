@@ -46,7 +46,7 @@ JavaProgram/
                     └── AppTest.java
 ```
 ### 3. Write Your Java Code
-Create a Java file named `JavaProgram.java` in the path `src/main/java/com/example/`:
+Create a Java file named `JavaProgram.java` or anything else, or simply start writing your code in the `App.java` that maven created, in the path `src/main/java/com/example/`:
 
 ```java
 package com.example;
