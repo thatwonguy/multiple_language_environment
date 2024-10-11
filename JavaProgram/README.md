@@ -106,4 +106,4 @@ mvn exec:java
 
 Using Maven simplifies the process of managing Java projects. It helps in organizing your code, managing dependencies, and packaging your applications efficiently. With this guide, you should be able to set up a Java project using Maven successfully.
 
-By following these steps, you can efficiently set up a Java project using Maven, compile your code, and execute it. This structure also allows for easier management of dependencies and project configurations.
+By following these steps, you can efficiently set up a Java project using Maven, compile your code, and execute it. This structure also allows for easier management of dependencies and project configurations...OR you can just manually figure it out and brute force it :P if you like.
