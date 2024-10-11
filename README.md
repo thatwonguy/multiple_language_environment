@@ -198,6 +198,8 @@ As a result we also have to implement CORS in our python API.
 
 - Nginx serves as a reverse proxy, routing requests from the React frontend to the FastAPI backend.
 It handles serving the React app and forwards API requests to the correct backend endpoint and provides more privacy for the backend.
+>[!IMPORTANT]
+> The key to using Nginx, cutting through all the bs and getting straight to it. You download the zip file for your system on the Nginx website and unzip it in your computer somewhere stable where it will live and note that location down, typically directly into your `C:/` drive. Once it has been extracted there, you go navigate into the C --> nginx (folder) --> conf (folder) --> within this folder is a file called `nginx.conf` and within this file you make the necessary changes to make the proxy reverse routing happen.
 
 - to start your nginx, navigate to the directory in bash terminal and type:
     ```bash
@@ -216,7 +218,7 @@ It handles serving the React app and forwards API requests to the correct backen
 
 This setup effectively demonstrates how different programming languages can communicate with each other through a centralized Python service. This type of architecture is useful for leveraging the strengths of various languages in a single application, allowing for more complex functionalities and integration with different systems.
 
-# How to RUN: Start 3 separate terminals
+# How to RUN with Nginx: Start 3 separate terminals
 ### 1. Nginx:
 - first terminal for `nginx`
 - cd into your directory where you extracted your nginx
